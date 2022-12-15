@@ -5,19 +5,6 @@ metadata:
   namespace: &rook-ceph-namespace rook-ceph
 spec:
   values:
-    cephClusterSpec:
-      storage:
-        useAllNodes: false
-        useAllDevices: false
-        nodes:
-          - &ceph_cluster_spec_storage_node_config
-            name: "lab-13882-18150-ctl-1"
-            deviceFilter: "^sd[b-c]"
-          - <<: *ceph_cluster_spec_storage_node_config
-            name: "lab-13882-18150-ctl-2"
-          - <<: *ceph_cluster_spec_storage_node_config
-            name: "lab-13882-18150-ctl-3"
-          - <<: *ceph_cluster_spec_storage_node_config
     configOverride: |
       [global]
       fsid = 3a8f66e6-1528-4b63-b36b-18ec24e907a1
