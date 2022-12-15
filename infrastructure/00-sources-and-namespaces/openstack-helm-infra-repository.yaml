@@ -1,0 +1,10 @@
+apiVersion: source.toolkit.fluxcd.io/v1beta2
+kind: GitRepository
+metadata:
+  name: openstack-helm-infra
+  namespace: default
+spec:
+  interval: 5m0s
+  url: https://gitlab.ics.muni.cz/cloud/g2/openstack-helm-infra.git
+  ref:
+    branch: downstream

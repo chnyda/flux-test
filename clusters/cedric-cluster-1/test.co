@@ -1,0 +1,106 @@
+apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
+kind: Kustomization
+metadata:
+  creationTimestamp: "2022-12-13T14:24:53Z"
+  finalizers:
+  - finalizers.fluxcd.io
+  generation: 1
+  labels:
+    kustomize.toolkit.fluxcd.io/name: flux-system
+    kustomize.toolkit.fluxcd.io/namespace: flux-system
+  managedFields:
+  - apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:labels:
+          f:kustomize.toolkit.fluxcd.io/name: {}
+          f:kustomize.toolkit.fluxcd.io/namespace: {}
+      f:spec:
+        f:dependsOn: {}
+        f:force: {}
+        f:interval: {}
+        f:path: {}
+        f:prune: {}
+        f:sourceRef:
+          f:kind: {}
+          f:name: {}
+        f:timeout: {}
+        f:wait: {}
+    manager: kustomize-controller
+    operation: Apply
+    time: "2022-12-13T14:25:21Z"
+  - apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:finalizers:
+          .: {}
+          v:"finalizers.fluxcd.io": {}
+    manager: gotk-kustomize-controller
+    operation: Update
+    time: "2022-12-13T14:24:53Z"
+  - apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:status:
+        f:conditions: {}
+        f:inventory:
+          .: {}
+          f:entries: {}
+        f:lastAttemptedRevision: {}
+    manager: gotk-kustomize-controller
+    operation: Update
+    subresource: status
+    time: "2022-12-13T14:25:51Z"
+  name: apps
+  namespace: flux-system
+  resourceVersion: "417297"
+  uid: 7482c614-9ac7-4691-b221-16eb3f492a10
+spec:
+  dependsOn:
+  - name: infrastructure
+  force: true
+  interval: 6m0s
+  path: ./apps/cedric-cluster-1
+  prune: true
+  sourceRef:
+    kind: GitRepository
+    name: flux-system
+  timeout: 5m0s
+  wait: true
+status:
+  conditions:
+  - lastTransitionTime: "2022-12-13T16:31:54Z"
+    message: Running health checks for revision master/8600520aaacd1f87bdf97d8bae044b3d1383dfd1
+      with a timeout of 5m0s
+    observedGeneration: 1
+    reason: ProgressingWithRetry
+    status: "True"
+    type: Reconciling
+  - lastTransitionTime: "2022-12-13T16:31:54Z"
+    message: 'Health check failed after 5m0.025115983s: timeout waiting for: [HelmRelease/rook-ceph/rook-ceph-cluster
+      status: ''InProgress'', HelmRelease/rook-ceph/rook-ceph-operator status: ''InProgress'',
+      HelmRelease/rook-ceph/rook-ceph-services status: ''InProgress'']'
+    observedGeneration: 1
+    reason: HealthCheckFailed
+    status: "False"
+    type: Ready
+  - lastTransitionTime: "2022-12-13T16:31:54Z"
+    message: 'timeout waiting for: [HelmRelease/rook-ceph/rook-ceph-cluster status:
+      ''InProgress'', HelmRelease/rook-ceph/rook-ceph-operator status: ''InProgress'',
+      HelmRelease/rook-ceph/rook-ceph-services status: ''InProgress'']'
+    observedGeneration: 1
+    reason: HealthCheckFailed
+    status: "False"
+    type: Healthy
+  inventory:
+    entries:
+    - id: rook-ceph_rook-ceph-cluster_helm.toolkit.fluxcd.io_HelmRelease
+      v: v2beta1
+    - id: rook-ceph_rook-ceph-operator_helm.toolkit.fluxcd.io_HelmRelease
+      v: v2beta1
+    - id: rook-ceph_rook-ceph-services_helm.toolkit.fluxcd.io_HelmRelease
+      v: v2beta1
+  lastAttemptedRevision: master/8600520aaacd1f87bdf97d8bae044b3d1383dfd1
+  observedGeneration: -1
