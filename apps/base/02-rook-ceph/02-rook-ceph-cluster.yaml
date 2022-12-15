@@ -63,7 +63,7 @@ spec:
         nodes:
           - &ceph_cluster_spec_storage_node_config
             name: "lab-13882-18150-ctl-1"
-            deviceFilter: "^sd[b-g]"
+            deviceFilter: "^sd[b-i]"
           - <<: *ceph_cluster_spec_storage_node_config
             name: "lab-13882-18150-ctl-2"
           - <<: *ceph_cluster_spec_storage_node_config
