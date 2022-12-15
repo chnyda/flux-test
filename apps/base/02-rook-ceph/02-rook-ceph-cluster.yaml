@@ -68,10 +68,6 @@ spec:
             name: "lab-13882-18150-ctl-2"
           - <<: *ceph_cluster_spec_storage_node_config
             name: "lab-13882-18150-ctl-3"
-          - <<: *ceph_cluster_spec_storage_node_config
-            name: "lab-13882-18150-ctl-4"
-          - <<: *ceph_cluster_spec_storage_node_config
-            name: "lab-13882-18150-ctl-5"
 
     # ceph block storage configuration
     cephBlockPools:
