@@ -134,7 +134,6 @@ spec:
                 - key: rook-ceph-role
                   values:
                     - storage-node
-    cephBlockPools:
       - name: ceph-blockpool
         # see https://github.com/rook/rook/blob/master/Documentation/CRDs/Block-Storage/ceph-block-pool-crd.md#spec for available configuration
         spec:
